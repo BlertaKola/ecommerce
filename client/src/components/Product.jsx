@@ -34,8 +34,6 @@ const Product = ({ product }) => {
     const fetchCart = async () => {
         try {
             const response = await axios.get(`http://localhost:8000/api/cart/${userID}`);
-            console.log("MARVIIIII")
-            console.log(response.data[0].products)
             if (response.data.length == 0) {
 
                 setHasCart(false)
@@ -56,19 +54,15 @@ const Product = ({ product }) => {
 
     const handleWishlist = (id) => {
         if (hasWishlist) {
-            // if()  i want to check here if the id is in wishlists array
             if (wishProducts.find(item => item._id === id)) {
-                console.log(`Product with id ${id} is already in the wishlist.`);
                 axios.delete(`http://localhost:8000/api/wishlist/${userID}/delete`, { data: { user_id: userID, product_id: id } })
                     .then(res => {
-                        console.log(res)
                         setUpdated(!updated)
                     })
                     .catch(err => console.log(err))
             } else {
                 axios.put(`http://localhost:8000/api/wishlist/${userID}/add`, { user_id: userID, product_id: [id] })
                     .then(res => {
-                        console.log(res.data);
                         setUpdated(!updated)
                     })
                     .catch(err => console.log(err));
@@ -77,7 +71,6 @@ const Product = ({ product }) => {
         else {
             axios.post(`http://localhost:8000/api/wishlist`, { user_id: userID, product_id: [id] })
                 .then(res => {
-                    console.log(res)
                     setUpdated(!updated)
                 })
                 .catch(err => console.log(err))
@@ -86,21 +79,16 @@ const Product = ({ product }) => {
 
     }
     const handleCart = (id) => {
-        console.log("CARTAAAAAAAAAAAAAAAAAA, ", hasCart)
         if (hasCart) {
-            // if()  i want to check here if the id is in wishlists array
             if (cartProducts.find(item => item._id === id)) {
-                console.log(`Product with id ${id} is already in the cart.`);
                 axios.delete(`http://localhost:8000/api/cart/${userID}/delete`, { data: { user_id: userID, product_id: id } })
                     .then(res => {
-                        console.log(res)
                         setUpdated(!updated)
                     })
                     .catch(err => console.log(err))
             } else {
                 axios.put(`http://localhost:8000/api/cart/${userID}/add`, { user_id: userID, product_id: [id] })
                     .then(res => {
-                        console.log(res.data);
                         setUpdated(!updated)
                     })
                     .catch(err => console.log(err));
@@ -109,12 +97,10 @@ const Product = ({ product }) => {
         else {
             axios.post(`http://localhost:8000/api/cart`, { user_id: userID, products: [id] })
                 .then(res => {
-                    console.log(res)
                     setUpdated(!updated)
                 })
                 .catch(err => console.log(err))
         }
-        console.log("ARE YOU GETTING THIS")
 
     }
 

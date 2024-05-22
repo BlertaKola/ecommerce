@@ -1,0 +1,25 @@
+.prod-container{
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid black;
+    height: 400px;
+    width: 80%;
+    margin: 2%;
+    margin-top: 100px;
+    margin-left: 10%;
+}
+
+.box-1{
+    width: 40%;
+    border: 1px solid black;
+}
+
+.box-2{
+    width: 40%;
+    border: 1px solid black;
+}
+
+.box-3{
+    width: 20%;
+    border: 1px solid black;
+}

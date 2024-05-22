@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.admin-dashboard {
+  display: flex;
+}
+
+.side-nav {
+  width: 200px;
+  background-color:  #004658; /* Adjust the alpha value for transparency */
+  backdrop-filter: blur(5px);
+  color: white;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+  padding-top: 60px; /* Space for the top navigation bar */
+}
+
+.side-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-nav li {
+  padding: 10px 0;
+}
+
+.side-nav li button {
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px 20px;
+  width: 100%;
+  text-align: left;
+}
+  
+.side-nav li button:hover {
+  background-color: #006eff;
+}
+
+.content {
+  margin-left: 200px; /* Adjust to match the sidebar width */
+  padding: 20px;
+  flex-grow: 1;
+  margin-top: 50px
+}
+
+@media (max-width: 768px) {
+  .side-nav {
+      width: 100%;
+      height: auto;
+      position: relative;
+  }
+  .content {
+      margin-left: 0;
+  }
+}

@@ -1,0 +1,28 @@
+.container-landing{
+    margin-top: 50px;
+}
+
+.div-random-prod{
+    margin-top: 3%;
+    /* justify-content: space-around; */
+    display: flex;
+    justify-content: center;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    margin-bottom: 5%;
+    margin-top: 3%;
+    justify-content: space-around;
+    margin: 2%;
+}
+
+.product-box {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+    height: 100px;
+
+}

@@ -1,0 +1,41 @@
+
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: rgb(5,89,133);
+background: radial-gradient(circle, rgba(5,89,133,1) 0%, rgba(92,211,238,1) 100%);
+  font-family: Arial, sans-serif;
+}
+
+.not-found-title {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #69030d;
+}
+
+.not-found-text {
+  font-size: 24px;
+  color: #000000;
+}
+button {
+  margin-top: 3%;
+  color: #eee7e7;
+  background-color: #69030d;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #8c0311;
+}
+
+button:focus {
+  outline: none;
+}

@@ -1,0 +1,56 @@
+.form-place {
+    font-family: Arial, sans-serif;
+    max-width: 700px;
+    margin: 0 auto;
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.form-place form div {
+    margin-bottom: 10px;
+}
+
+.form-place form label {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 14px;
+}
+
+.form-place form input[type="email"],
+.form-place form input[type="text"],
+.form-place form input[type="password"] {
+    width: 100%;
+    padding: 6px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.form-place form button {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    background-color: #004658;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-place form button:hover {
+    background-color: #025e75;
+}
+
+.form-place form a {
+    display: block;
+    text-align: center;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #004658;
+    text-decoration: none;
+}
+
+.form-place form a:hover {
+    text-decoration: underline;
+}

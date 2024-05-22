@@ -1,0 +1,24 @@
+.ticker-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box; 
+    background-color: #720202;
+    color: #ccc;
+    height: 15px;
+  }
+  
+
+  
+  .ticker {
+    display: flex;
+  }
+  
+  .ticker__item {
+    margin-right: 10px;
+    font-size: 10px;
+    font-weight: bold;
+  }
+  

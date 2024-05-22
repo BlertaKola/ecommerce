@@ -13,7 +13,6 @@ const Landing = () => {
     useEffect(()=>{
         axios.get('http://localhost:8000/api/products')
             .then(res => {
-                // console.log("te gjtha produktet: ",res.data)
                 setProducts(res.data)
             })
             .catch(err => console.log(err))

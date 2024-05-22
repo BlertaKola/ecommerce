@@ -18,7 +18,7 @@ require('./routes/category.route')(app);
 // require('./routes/reviews.route')(app);
 // require('./routes/ratings.route')(app);
 require('./routes/wishlist.route')(app);
-// require('./routes/cart.route')(app);
+require('./routes/cart.route')(app);
 
 app.listen(8000, () => {
     console.log("Listening at Port 8000")

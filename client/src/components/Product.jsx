@@ -10,7 +10,10 @@ const Product = ({ product }) => {
 
     const userID = localStorage.getItem("userID")
     const [hasWishlist, setHasWishlist] = useState(false)
+    const [hasCart, setHasCart] = useState(false)
+
     const [wishProducts, setWishProducts] = useState([])
+    const [cartProducts, setCartProducts] =useState([])
 
     const [updated, setUpdated] = useState(false)
 
@@ -28,10 +31,26 @@ const Product = ({ product }) => {
             console.error('Error fetching wishlist:', error);
         }
     };
+    const fetchCart = async () => {
+        try {
+            const response = await axios.get(`http://localhost:8000/api/cart/${userID}`);
+            console.log("MARVIIIII")
+            console.log(response.data[0].products)
+            if (response.data.length == 0) {
+
+                setHasCart(false)
+            }
+            setHasCart(true)
+            setCartProducts(response.data[0].products)
+        } catch (error) {
+            console.error('Error fetching wishlist:', error);
+        }
+    };
 
 
     useEffect(() => {
         fetchWishlist();
+        fetchCart()
     }, [userID, updated]);
 
 
@@ -66,6 +85,38 @@ const Product = ({ product }) => {
         console.log("ARE YOU GETTING THIS")
 
     }
+    const handleCart = (id) => {
+        console.log("CARTAAAAAAAAAAAAAAAAAA, ", hasCart)
+        if (hasCart) {
+            // if()  i want to check here if the id is in wishlists array
+            if (cartProducts.find(item => item._id === id)) {
+                console.log(`Product with id ${id} is already in the cart.`);
+                axios.delete(`http://localhost:8000/api/cart/${userID}/delete`, { data: { user_id: userID, product_id: id } })
+                    .then(res => {
+                        console.log(res)
+                        setUpdated(!updated)
+                    })
+                    .catch(err => console.log(err))
+            } else {
+                axios.put(`http://localhost:8000/api/cart/${userID}/add`, { user_id: userID, product_id: [id] })
+                    .then(res => {
+                        console.log(res.data);
+                        setUpdated(!updated)
+                    })
+                    .catch(err => console.log(err));
+            }
+        }
+        else {
+            axios.post(`http://localhost:8000/api/cart`, { user_id: userID, products: [id] })
+                .then(res => {
+                    console.log(res)
+                    setUpdated(!updated)
+                })
+                .catch(err => console.log(err))
+        }
+        console.log("ARE YOU GETTING THIS")
+
+    }
 
 
     return (
@@ -81,7 +132,7 @@ const Product = ({ product }) => {
                             <button className={`button-heart ${wishProducts.find(item => item._id === product._id) ? 'in-wishlist' : ''}`} onClick={() => handleWishlist(product._id)}>
                                 <FontAwesomeIcon icon={faHeart} />
                             </button>
-                            <button className="button-cart">
+                            <button className={`cart-button ${cartProducts.find(item => item._id === product._id) ? 'in-cart' : ''}`} onClick={() => handleCart(product._id)}>
                                 <FontAwesomeIcon icon={faCartPlus} />
                             </button>
                         </> : ""}

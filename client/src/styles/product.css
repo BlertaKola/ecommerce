@@ -64,3 +64,25 @@
 .button-cart:hover {
   color: #dfdcdc;
 }
+
+
+/* Regular button style */
+.cart-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Style for when the product is in the cart */
+.cart-button.in-cart {
+  background-color: #00cc00; /* Change to your desired color */
+  color: #fff; /* Text color */
+  border-radius: 50%; /* Rounded shape */
+  padding: 8px; /* Adjust padding as needed */
+}
+
+/* Style for the icon inside the button */
+.cart-button svg {
+  font-size: 1.5rem; /* Adjust the icon size */
+}
